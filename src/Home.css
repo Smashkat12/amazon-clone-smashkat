@@ -1,0 +1,6 @@
+.home__image {
+	width: 100%;
+	z-index: -1; /* move it to the back */
+	margin-bottom: -150px; /* move contents below image on top on inmage */
+	mask-image: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0)); /* provides faded effect on image */
+}
