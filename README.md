@@ -2,6 +2,10 @@
 
 Amazon e-com clone built with react.js and firebase
 
+# Live Demo
+
+This project has been hosted on firebase, you can access it via [https://clone-smashkat.web.app](https://clone-smashkat.web.app) 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
