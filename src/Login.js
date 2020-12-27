@@ -12,7 +12,17 @@ function Login() {
 
   const signIn = (e) => {
     //handle sing in
-    e.preventDefault();
+	e.preventDefault();
+	
+	auth
+    .signInWithEmailAndPassword(email, password)
+    .then((auth) => {
+      //successfully logged in a user with email and password
+      if (auth) {
+        history.push("/");
+      }
+    })
+    .catch((error) => alert(error.message));
 
     //some firebase login happens here
   };
