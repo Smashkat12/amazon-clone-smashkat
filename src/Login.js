@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { auth } from "./firebase";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  //allows us to programmatically change the url
+  const history = useHistory();
+
   const signIn = (e) => {
     //handle sing in
     e.preventDefault();
@@ -10,16 +17,25 @@ function Login() {
     //some firebase login happens here
   };
 
-
   const register = (e) => {
     //handle sing in
     e.preventDefault();
 
-    //some firebase register happens here
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        //successfully created a user with email and password
+		console.log(auth);
+		if(auth){
+			//redirect to root
+			history.push('/')
+		}
+      })
+      .catch((error) => alert(error.message));
+
+    
   };
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   return (
     <div className="login">
       <Link to="/">
